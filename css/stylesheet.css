@@ -1,0 +1,118 @@
+/* General (Tablet + Desktop) */
+
+body{
+	background-image: url(file:///C:/Users/Sarah/Documents/case%202/images/23158143_10156910284043569_1392323764_o.jpg)
+}
+
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: #cc0000;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #cc0000;
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover:not(.active) {
+    background-color: #d90202;
+}
+
+.active {
+    background-color: #d90202;
+}
+
+article {
+    padding: 1em;
+    overflow: hidden;
+}
+
+main {
+    padding: 1em;
+    overflow: hidden;
+}
+
+/* Phones */
+@media only screen and (min-width : 320px) and (max-width : 480px) {
+    #menu-icon {
+        display:inline-block;
+        width: 40px;
+        height: 40px;
+        background: #cc0000 url(../images/menu-icon.png) center;
+    }
+
+    a:hover#menu-icon {
+        background-color: #cc0000;
+        border-radius: 4px 4px 0 0;
+    }
+
+    nav {
+        margin: 0;
+	    background-color: #cc0000;
+    }
+
+	nav ul {
+        display: none;
+        position: absolute;
+	    border: 1px solid gray;
+        width: 100px;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #cc0000;
+    }
+
+    nav:hover ul {
+        display: block;
+    }
+}
+
+/* Content */
+.left {
+	float: left;
+	width: 300px;
+	padding: 10px;
+}
+
+.right {
+	float: right;
+	width: 300px;
+	padding: 10px;
+}
+
+.center {
+	display: block;
+    margin: 0 auto;
+}
+
+.index-img {
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 600px;
+}
+

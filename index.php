@@ -21,7 +21,6 @@
   <a href="#" id="menu-icon"></a>
   <ul>
 	<li><a class="active" href="index.html">Forside</a></li>
-	<li><a href="kontakt.html">Kontakt</a></li>
   </ul>
 </nav>
 
@@ -32,22 +31,50 @@
 	</center>	
 	
 	<center><br>
-<input type="file" id="myFile">
-
+<form action="upload.php" method="post" enctype="multipart/form-data">
+<p>Billede:<br /><input type="file" name="file" id="file"></p>
+<p>E-mail adresse:<br /><input type="text" name="email"></p>
+<p>Besked:<br /><textarea name="text" rows="10" cols="30"></textarea></p>
 <p>Klik på knappen "Send" for at deaktivere knappen for upload af filer.</p>
-	
-<button onclick="myFucation()">Send</button>
+<p><input type="submit" value="Send"></p>
+</form>
 	</center><br>
 
 <center>
-	 <img class="img-responsive img-hover" src="images/23283494_10156922335608569_198658384_n.jpg" width="25%" alt="">
-	<center><p>Hej med dig</p></center>
-	
 
-	<img class="img-responsive img-hover" src="images/23360801_10156922335598569_1187511068_n.jpg" width="25%" alt="">
-	
-	<img class="img-responsive img-hover" src="images/23316199_10156922335603569_2082239271_n.jpg" width="17%" alt="">
-	
+<?php
+// tilføj koden fra showimages her
+    	$sti = "./minebilleder"; // delete this line if your PHP 
+
+			// find files in folder  and sort by filename
+			$allFiles = scandir($sti,1);
+			sort($allFiles);
+			// and show them BUT only if they are jpg
+			$howMany = count($allFiles);
+			// howmany kan udskiftes med et antal, som er det antal billeder der vises vandret
+			for($i=0;$i<$howMany;$i++){
+				if (".jpg"==substr($allFiles[$i],-4)) {
+				echo "
+				<article class='show' onClick=\" swop(this) \">		
+					<img src=\"$sti/$allFiles[$i]\" />
+					
+					<p>";
+				
+				include("./mine-tekster/".$allFiles[$i].".txt");
+					echo "</p>
+					
+					<div class='cover' onClick=\" swop2(this) \"></div>
+				</article>	";
+				} else {
+					echo("<!-- ".$allFiles[$i]."-->");
+				}
+			}
+
+
+
+
+
+?>	
 <script>
 	function myFunction() {
 	var x=document. getElementById("myFile");

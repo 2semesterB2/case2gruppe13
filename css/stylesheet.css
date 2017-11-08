@@ -1,8 +1,19 @@
-/* General (Tablet + Desktop) */
 
-body{
-	background-image: url(file:///C:/Users/Sarah/Documents/case%202/images/23158143_10156910284043569_1392323764_o.jpg)
+.body {
+	/* billeder */ 
+    background: url("images/bg.png");
+    
+    /* Fuld højde */
+    height: 100%;
+    
+    /* skala billedet pænt */
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
+
+
+/* General (Tablet + Desktop) */
 
 
 header, footer {
@@ -115,4 +126,18 @@ main {
 	width: 100%;
 	max-width: 600px;
 }
+
+/* styling af billederne */
+
+.show {
+    display: inline-block;
+    width: 300px;
+    height: 380px;
+}
+
+.show>img {
+    width: 300px;
+    height: 300px;
+}
+
 

@@ -133,11 +133,21 @@ main {
     display: inline-block;
     width: 300px;
     height: 380px;
+    border:3px solid grey;
+    margin: 15px;
 }
 
-.show>img {
-    width: 300px;
-    height: 300px;
+.show img {
+    float: right;
+    width: 250px;
+    height: 210px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    
+    
 }
+p.billedtekst {text-align: center; margin-left: 0;}
+
 
 

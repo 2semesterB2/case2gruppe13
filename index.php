@@ -8,43 +8,74 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="css/stylesheet.css">
 </head>
-	<script src="js/js-script.js"></script>
+<script src="js/js-script.js"></script>
+
+<style>
+input[type=submit] {
+    background-color: #cc0000;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+input[type=file] {
+  /*  border:3px solid grey; */
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: rgba(137, 137, 137, 0.44);
+    width: 350px;
+}
+
+textarea[name=text] {
+  width: 350px;
+  height: 100px;
+  padding: 15px 32px;
+}
+
+input[type=text] {
+  width: 350px;
+  padding: 15px 32px;
+}
+
+</style>
+
 <body>
-
-<div class="container">
-<header>
-	<img class="bauhaus-img" src="images/bauhaus-logo.png" width="75%"/>
-</header>
-
-
-<nav>
-  <a href="#" id="menu-icon"></a>
-  <ul>
-	<li><a class="active" href="index.html">Forside</a></li>
-  </ul>
-</nav>
-
-
-<article>
-	<center>
-		<img class="img-responsive img-hover" src="images/23163654_10156910345178569_63175005_n.png" width="40%">
-	</center>	
-	
-	<center><br>
-<form action="upload.php" method="post" enctype="multipart/form-data">
-<p>Billede:<br /><input type="file" name="file" id="file"></p>
-<p>E-mail adresse:<br /><input type="text" name="email"></p>
-<p>Besked:<br /><textarea name="text" rows="10" cols="30"></textarea></p>
-<p>Klik på knappen "Send" for at deaktivere knappen for upload af filer.</p>
-<p><input type="submit" value="Send"></p>
-</form>
-	</center><br>
+  <div class="container">
+	   <img class="logo" src="images/logo.png" width="35%"/>
+     <article>
+	      <center>
+        <img class="grafik" src="images/grafik.png" width="30%">
+		      <img class="banner" src="images/banner.png" width="25%">
+          <br>
+          <br>
+	     <p class="intro">Er du kreativ og vild med gør-det-selv projekter? Og kunne du tænke dig, at vinde eksklusive rabatter i din Bauhaus? Det eneste du skal gøre er, at tage et foto hvor du viser dit projekt frem og uploade det her på siden.
+         Hver måned er der en ny rabat på højkant og en vinder vil blive trukket blandt månedens forslag.</p>
+        <br>
+      <form action="upload.php" method="post" enctype="multipart/form-data">
+          <p class="form-text">Vælg et billede:<br><br><input type="file" name="file" id="file"></p>
+          <p class="form-text">Din e-mailadresse:<br><br><input type="text" name="email"></p>
+          <p class="form-text">Fortæl om dit billede:<br><br><textarea name="text" rows="7" cols="50"></textarea></p>
+          <p class="form-text"><input type="submit" value="Upload"></p>
+        </form>
+	      </center><br>
 
 <center>
 
 <?php
 // tilføj koden fra showimages her
-    	$sti = "./minebilleder"; // delete this line if your PHP 
+    	$sti = "./minebilleder"; // delete this line if your PHP
 
 			// find files in folder  and sort by filename
 			$allFiles = scandir($sti,1);
@@ -55,14 +86,14 @@
 			for($i=0;$i<$howMany;$i++){
 				if (".jpg"==substr($allFiles[$i],-4)) {
 				echo "
-				<article class='show' onClick=\" swop(this) \">		
+				<article class='show' onClick=\" swop(this) \">
 					<img src=\"$sti/$allFiles[$i]\" />
-					
+
 					<p>";
-				
+
 				include("./mine-tekster/".$allFiles[$i].".txt");
 					echo "</p>
-					
+
 					<div class='cover' onClick=\" swop2(this) \"></div>
 				</article>	";
 				} else {
@@ -71,32 +102,14 @@
 			}
 
 
-
-
-
-?>	
+?>
 <script>
 	function myFunction() {
 	var x=document. getElementById("myFile");
-	x.disabled = true; 
+	x.disabled = true;
 }
 	</script>
 	</center>
-	
-	
-<footer>Skrevet af Ann Cathrine, Liza, Maj &amp; Sarah
-   <article><a href="https://www.facebook.com/BAUHAUSDK">
-	<img src="images/facebook-3-512.png" alt="Facebook" style="width:30px;height:30px;"></a>
-	<a href="https://plus.google.com/113958749870732519892"></a>
-	<img src="images/gp.png" alt="Google" style="width:30px;height:30px;">
-	<a href="https://www.instagram.com/bauhaus_danmark/"></a>
-	<img src="images/white-instagram.png" alt="Instagram" style="width:30px;height:30px;">
-	<a href="https://www.youtube.com/user/BAUHAUSdk"></a>
-	<img src="images/2000px-YouTube_light_icon_(2017).svg.png" alt="Youtube" style="width:30px;height:30px;">
-	<a href="https://www.pinterest.dk/bauhausdanmark/"></a>
-	<img src="images/pinterest_logo.png" alt="pinterest" style="width:30px;height:30px;"></article>
-	</footer>
-	
-	</article></div>	
+	</article></div>
 </body>
 </html>
